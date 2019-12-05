@@ -12,7 +12,7 @@ var orm = {
             callBack(result);
         });
     },
-    create: function(table, cols, vals, callBack) {
+    insertOne: function(table, cols, vals, callBack) {
         var queryString = "INSERT INTO " + table;
 
         queryString += " (";
@@ -23,7 +23,6 @@ var orm = {
         queryString += ") ";
 
         console.log(queryString);
-
         connection.query(queryString, vals, function(err, result) {
             if (err) {
                 throw err;
@@ -31,6 +30,22 @@ var orm = {
             callBack(result);
         });
     },
+    updateOne: function(table, objColVals, condition, callBack) {
+        var queryString = "UPDATE " + table;
+
+        queryString += " SET ";
+        queryString += objToSql(objColVals);
+        queryString += " WHERE ";
+        queryString += condition
+
+        console.log(queryString);
+        connection.query(queryString, function(err, result) {
+            if (err) {
+                throw err;
+            }
+            callBack(result);
+        });
+    }
 };
 
 module.exports = orm;
