@@ -21,7 +21,7 @@ router.post("/api/burger", function(req, res) {
         [req.body.burger_name, req.body.devoured],
         function(result) {
             // === Sending back to the ID ===
-            res.json( { id: result.insertID });
+            res.json({ id: result.insertID });
     });
 });
 
