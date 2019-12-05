@@ -1,5 +1,35 @@
 <div class="container">
   <div class="row">
     <div class="col-8">col-8</div>
+        <h1>Eat Da Burger</h1>
   </div>
 </div>
+
+<h2>Add a Burger Here!</h2>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="addBurgerHere">Enter Your Favorite Burger Here!</label>
+    <textarea class="form-control" id="addBurgerHere" rows="3"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<h2>List of Burgers</h2>
+<ul>
+    {{#each burger}}
+        {{#unless devoured}}
+            {{> burger/burgers-block devoured=false}}
+        {{/unless}}
+    {{/each}}
+</ul>
+
+<h2>Was the Burger Eaten??</h2>
+<ul>
+    {{#each burger}}
+        {{#unless devoured}}
+            {{> burger/burgers-block devoured=true}}
+        {{/unless}}
+    {{/each}}
+</ul>
