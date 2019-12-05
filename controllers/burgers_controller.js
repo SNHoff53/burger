@@ -4,7 +4,7 @@ var router = express.Router();
 // === Import the model (burger.js) to use its database functions ===
 var burger = require("../models/burger.js");
 
-// === Create all routes and set up logic within routes ===
+// === Create all routes (get/post/put/delete) and set up logic within routes ===
 router.get("/index", function(req, res) {
     burger.all(function(data) {
         var hbsObject = {
