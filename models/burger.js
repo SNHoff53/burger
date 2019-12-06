@@ -1,7 +1,7 @@
 // === Import the ORM to create functions that will interact with the database ===
 var orm = require("../config/orm");
 
-var burgers = {
+var burger = {
     all: function(callBack) {
         orm.selectAll("burgers", function(res) {
             callBack(res);
@@ -24,4 +24,4 @@ var burgers = {
     }
 };
 
-module.exports = burgers;
+module.exports = burger;
