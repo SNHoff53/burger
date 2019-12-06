@@ -1,4 +1,3 @@
-// === Setting up MySQL connection ===
 var mysql = require("mysql");
 
 // === Setting up the connection ===

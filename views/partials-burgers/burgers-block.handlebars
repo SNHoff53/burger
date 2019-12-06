@@ -1,7 +1,9 @@
 <li>
     {{burger}}
 
-    <button class="yes-devoured" data-id="{{id}}" data-newdevoured="{{devoured}}">
-        {{#if devoured}}Devour It!{{else}}{{/if}}
+{{!-- Creating a button and calling the function to change the burger's status in burger.js --}}
+    <button class="change-status" data-id="{{id}}" data-isDevoured="{{devoured}}">
+        {{#if devoured}}Devour It!{{else}}Don't Do It!!{{/if}}
     </button>
+    <button class="delete-burge" data-id="{{this.id}}">Delete Da Burger!</button>
 </li>

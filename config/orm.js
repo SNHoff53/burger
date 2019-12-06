@@ -1,10 +1,10 @@
 // === Importing MySQL connection ===
-var connection = require("./connection.js");
+var connection = require("../config/connection.js");
 
 // === Object for all our SQL statement functions ===
 var orm = {
-    selectAll: function(tableInput, callBack) {
-        var queryString = "SELECT * FROM " + tableInput + ";";
+    selectAll: function(table, callBack) {
+        var queryString = "SELECT * FROM " + table + ";";
         connection.query(queryString, function(err, result) {
             if (err) {
                 throw err;
@@ -19,10 +19,10 @@ var orm = {
         queryString += cols.toString();
         queryString += ") ";
         queryString += "VALUES (";
-        queryString += printQuestionMarks(vals.length);
+        queryString += vals;
         queryString += ") ";
-
         console.log(queryString);
+
         connection.query(queryString, vals, function(err, result) {
             if (err) {
                 throw err;
@@ -36,14 +36,28 @@ var orm = {
         queryString += " SET ";
         queryString += objToSql(objColVals);
         queryString += " WHERE ";
-        queryString += condition
-
+        queryString += condition;
         console.log(queryString);
+
         connection.query(queryString, function(err, result) {
             if (err) {
                 throw err;
             }
             callBack(result);
+        });
+    },
+    deleteOne: function(table, condition, callBack) {
+        var queryString = "DELETE FROM " + table;
+        queryString += " WHERE ";
+        queryString += condition;
+        console.log(queryString);
+
+        connection.query(queryString, function(err, result) {
+            if (err) {
+                throw err;
+            }
+
+            callBack(result)
         });
     }
 };
