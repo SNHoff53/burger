@@ -7,17 +7,18 @@ var burger = require("../models/burger.js");
 // === Create all routes (get/post/put/delete) and set up logic within routes ===
 router.get("/", function(req, res) {
     burger.selectAll(function(data) {
-        res.json(data);
-    });
-});
-
-router.get("/index", function(req, res) {
-    burger.selectAll(function(data) {
         var hbsObject = {
             burgers: data
         };
         console.log(hbsObject);
         res.render("index", hbsObject);
+    });
+});
+
+// === Getting all the burger data and storing it as a json object ===
+router.get("/api/burgers", function(req, res) {
+    burger.selectAll(function(data) {
+        res.json(data);
     });
 });
 
