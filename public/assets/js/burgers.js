@@ -22,7 +22,7 @@ $(".create-form").on("submit", function(event) {
     event.preventDefault();
 
     var newBurger = {
-        burger_name: $("burger_name").val().trim(),
+        burger_name: $("#burger").val().trim(),
         devoured: $("[devoured]:checked").val().trim()
     };
 

@@ -4,4 +4,23 @@ body {
 
 h1 {
     text-align: center;
+    color: lemonchiffon;
+}
+
+h2 {
+    text-align: center;
+}
+
+#burger-image {
+    height: 200px;
+    width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.form-control {
+    margin-left: auto;
+    margin-right: auto;
 }
