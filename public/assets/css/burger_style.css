@@ -1,13 +1,13 @@
 body {
-    background-color: darkgoldenrod;
+    background-color: rgb(228, 190, 94);
 }
 
 h1 {
     text-align: center;
-    color: lemonchiffon;
+    color: tomato;
 }
 
-h2 {
+h5 {
     text-align: center;
 }
 
@@ -17,10 +17,19 @@ h2 {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
+.btn-primary {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
 .form-control {
+    width: 500px;
     margin-left: auto;
     margin-right: auto;
 }

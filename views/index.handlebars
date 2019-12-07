@@ -1,8 +1,9 @@
 
 <img src="assets/img/burger.png" alt="image-burger" id="burger-image">
-<h1>Eat Da Burger</h1>
+<br>
+<h1>Eat-Da-Burger!</h1>
 
-<h2>Add Your Favorite Burger Below</h2>
+<h5>Add Your Favorite Burger Below</h5>
 
 <form>
   <div class="create-form">
@@ -10,25 +11,28 @@
     <label for="burger">Enter your choice of burger below</label>
     <textarea class="form-control" id="burger" rows="5" cols="50"></textarea>
   </div>
-  <button type="submit">Add Burger</button>
+  <button type="submit" class="btn btn-primary">Add Burger</button>
 </form>
+<ul>
+    {{#each burger}}
+        {{#if devoured}}
+            {{> burger/burgers-block devoured=false}}
+        {{/if}}
+    {{/each}}
+</ul>
 
-<h2>Your List of Burgers</h2>
-{{!-- Add a list group --}}
+{{!-- Input group --}}
+<div class="input-group mb-3" style="width: 400px">
+  <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2">
+  <div class="input-group-append">
+    <button class="btn-btn-primary" type="button" id="button-addon2">Devour It!</button>
+  </div>
+
 {{!-- Unless the burgers have not been devoured --}}
 <ul>
     {{#each burger}}
         {{#unless devoured}}
             {{> burger/burgers-block devoured=true}}
         {{/unless}}
-    {{/each}}
-</ul>
-
-<h2>Was the Burger Eaten??</h2>
-<ul>
-    {{#each burger}}
-        {{#if devoured}}
-            {{> burger/burgers-block devoured=false}}
-        {{/if}}
     {{/each}}
 </ul>
