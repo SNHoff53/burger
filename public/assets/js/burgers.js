@@ -3,9 +3,7 @@ $(function() {
         var id = $(this).data("id");
         var isDevoured = $(this).data("devoured");
 
-        var isDevouredStatus = {
-            devoured: isDevoured
-        };
+        var isDevouredStatus = { devoured: isDevoured };
 
         // Sending the PUT request
         $.ajax("/api/burgers/" + id, {

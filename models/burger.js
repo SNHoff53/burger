@@ -1,24 +1,24 @@
 // === Import the ORM to create functions that will interact with the database ===
-var orm = require("../config/orm");
+var orm = require("../config/orm.js");
 
 var burger = {
-    all: function(callBack) {
+    selectAll: function(callBack) {
         orm.selectAll("burgers", function(res) {
             callBack(res);
         });
     },
-    create: function(cols, vals, callBack) {
-        orm.create("burgers", cols, vals, function(res) {
+    insertOne: function(columns, values, callBack) {
+        orm.insertOne("burgers", columns, values, function(res) {
             callBack(res);
         });
     },
-    update: function(objColVals, condition, callBack) {
-        orm.update("burgers", objColVals, condition, function(res) {
+    updateOne: function(objColVals, condition, callBack) {
+        orm.updateOne("burgers", objColVals, condition, function(res) {
             callBack(res);
         });
     },
-    delete: function(condition, callBack) {
-        orm.delete("burgers", condition, function(res) {
+    deleteOne: function(condition, callBack) {
+        orm.deleteOne("burgers", condition, function(res) {
             callBack(res);
         });
     }
