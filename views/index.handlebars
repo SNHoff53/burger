@@ -13,13 +13,6 @@
   </div>
   <button type="submit" class="btn btn-primary">Add Burger</button>
 </form>
-<ul>
-    {{#each burger}}
-        {{#if devoured}}
-            {{> burger/burgers-block devoured=false}}
-        {{/if}}
-    {{/each}}
-</ul>
 
 {{!-- Input group --}}
 <div class="input-group mb-3" style="width: 400px">
@@ -29,6 +22,14 @@
   </div>
 
 {{!-- Unless the burgers have not been devoured --}}
+<ul>
+    {{#each burger}}
+        {{#if devoured}}
+            {{> burger/burgers-block devoured=false}}
+        {{/if}}
+    {{/each}}
+</ul>
+
 <ul>
     {{#each burger}}
         {{#unless devoured}}
