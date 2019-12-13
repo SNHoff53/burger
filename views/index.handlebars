@@ -13,12 +13,13 @@
   </div class="input-group-prepend">
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-<br>
+<br><br>
 
 {{!-- Unless the burgers have not been devoured --}}
 <div class="container section">
-    <div class="newly added burger col-md-12">
+    <div class="newly-added-burger">
         <h4 class="burger-header">Get your hot burgers here!</h4>
+            <button type="button" id="devour-button">Devour It!</button>        
         <ul class="list-group">
             {{#each burger}}
                 {{#if devoured}}
@@ -28,18 +29,16 @@
         </ul>
     </div><br>
     <div>
-        <div class="newly added burger col-md-12">
+        <div class="newly-added-burger">
             <h4 class="burger-header">No more burgers left</h4>
-            <ul class="list-group">
-                {{#each burger}}
+        <ul class="list-group">
+            {{#each burger}}
                 {{#unless devoured}}
                     {{> burger/burgers-block devoured=true}}
                 {{/unless}}
             {{/each}}
-            </ul>
-            <ul>
+        </ul>
         </div>
-
 </div>
 
 
