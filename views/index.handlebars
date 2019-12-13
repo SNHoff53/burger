@@ -6,34 +6,40 @@
 <h5>Add Your Favorite Burger Below</h5>
 
 <form>
-  <div class="create-form">
+  <div class="create-form" method="post">
   <div class="form-group">
-    <label for="burger">Enter your choice of burger below</label>
+    <label for="burger"></label>
     <textarea class="form-control" id="burger" rows="5" cols="50"></textarea>
-  </div>
-  <button type="submit" class="btn btn-primary">Add Burger</button>
+  </div class="input-group-prepend">
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-
-{{!-- Input group --}}
-<div class="input-group mb-3" style="width: 400px">
-  <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2">
-  <div class="input-group-append">
-    <button class="btn-btn-primary" type="button" id="button-addon2">Devour It!</button>
-  </div>
+<br>
 
 {{!-- Unless the burgers have not been devoured --}}
-<ul>
-    {{#each burger}}
-        {{#if devoured}}
-            {{> burger/burgers-block devoured=false}}
-        {{/if}}
-    {{/each}}
-</ul>
+<div class="container section">
+    <div class="newly added burger col-md-12">
+        <h4 class="burger-header">Get your hot burgers here!</h4>
+        <ul class="list-group">
+            {{#each burger}}
+                {{#if devoured}}
+                    {{> burger/burgers-block devoured=false}}
+                {{/if}}
+            {{/each}}
+        </ul>
+    </div><br>
+    <div>
+        <div class="newly added burger col-md-12">
+            <h4 class="burger-header">No more burgers left</h4>
+            <ul class="list-group">
+                {{#each burger}}
+                {{#unless devoured}}
+                    {{> burger/burgers-block devoured=true}}
+                {{/unless}}
+            {{/each}}
+            </ul>
+            <ul>
+        </div>
 
-<ul>
-    {{#each burger}}
-        {{#unless devoured}}
-            {{> burger/burgers-block devoured=true}}
-        {{/unless}}
-    {{/each}}
-</ul>
+</div>
+
+
