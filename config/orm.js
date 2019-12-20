@@ -3,8 +3,8 @@ var connection = require("../config/connection.js");
 
 // === Object for all our SQL statement functions ===
 var orm = {
-    selectAll: function(table, callBack) {
-        var queryString = "SELECT * FROM " + table + ";";
+    selectAll: function(tableInput, callBack) {
+        var queryString = "SELECT * FROM " + tableInput + ";";
         connection.query(queryString, function(err, result) {
             if (err) {
                 throw err;
@@ -19,7 +19,7 @@ var orm = {
         queryString += cols.toString();
         queryString += ") ";
         queryString += "VALUES (";
-        queryString += vals;
+        queryString += vals.length;
         queryString += ") ";
         console.log(queryString);
 

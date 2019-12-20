@@ -1,9 +1,11 @@
 $(function() {
     $(".change-status").on("click", function(event) {
         var id = $(this).data("id");
-        var isDevoured = $(this).data("devoured");
+        var isDevoured = $(this).data("isdevoured");
 
-        var isDevouredStatus = { devoured: isDevoured };
+        var isDevouredStatus = { 
+            devoured: isDevoured 
+        };
 
         // Sending the PUT request
         $.ajax("/api/burgers/" + id, {
